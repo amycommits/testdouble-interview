@@ -52,5 +52,6 @@
   </tfoot>
 </table>
 
+<%= link_to 'Convert to Yen', invoice_path(@invoice, {currency: 'jpy'}) %> |
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>

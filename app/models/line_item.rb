@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: line_items
+#
+#  id                   :integer          not null, primary key
+#  invoice_id           :integer          not null
+#  product_id           :integer
+#  service_id           :integer
+#  price_override_cents :integer
+#  quantity             :integer          default(1), not null
+#  description          :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
 class LineItem < ApplicationRecord
   belongs_to :invoice
   belongs_to :product, :optional => true
