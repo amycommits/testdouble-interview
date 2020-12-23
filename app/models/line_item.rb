@@ -26,4 +26,20 @@ class LineItem < ApplicationRecord
       errors.add(:base, "A line item can't be both a product and a service")
     end
   end
+  def display_cents(currency)
+    if product_id.present?
+      cents = product.price_cents
+    else
+      cents = service.price_cents
+    end 
+    cents = price_override_cents if price_override_cents.present?
+    translate_cents(cents, currency)
+  end
+
+  private
+
+    def translate_cents(cents, currency)
+      # forex stuff
+      cents
+    end
 end
